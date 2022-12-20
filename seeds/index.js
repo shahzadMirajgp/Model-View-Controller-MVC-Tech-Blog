@@ -1,4 +1,4 @@
-// todo: build index js
+// todo: check index js
 
 const seedPosts = require('./post-seeds');
 const seedUsers = require('./user-seeds');

@@ -1,4 +1,4 @@
-// todo: build user seeds js
+// todo: check user seeds js
 
 const { User } = require('../models');
 

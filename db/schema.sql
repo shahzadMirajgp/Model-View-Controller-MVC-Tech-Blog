@@ -1,4 +1,4 @@
--- todo: build schema
+-- todo: check schema
 
 DROP DATABASE IF EXISTS blog_db;
 

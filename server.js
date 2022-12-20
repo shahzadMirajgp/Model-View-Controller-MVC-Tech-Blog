@@ -1,5 +1,4 @@
-// todo: build server js
-
+// todo: check server js
 
 const path = require('path');
 const express = require('express');

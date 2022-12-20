@@ -1,4 +1,4 @@
-// todo: build comment seeds js
+// todo: check comment seeds js
 
 const { Comment } = require('../models');
 

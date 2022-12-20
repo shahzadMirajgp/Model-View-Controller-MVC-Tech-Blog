@@ -1,9 +1,20 @@
-// todo: build comment route js
+// todo: check comment route js
 
 const router = require('express').Router();
 const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// Render all comments
+router.get('/', (req, res) => {
+  Comment.findAll({})
+    .then(dbCommentData => res.json(dbCommentData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+// Add new comment
 router.post('/', withAuth, async (req, res) => {
     try {
       const newComment = await Comment.create({

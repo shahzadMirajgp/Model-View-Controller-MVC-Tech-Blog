@@ -1,4 +1,4 @@
-// todo: build api index
+// todo: check api index
 
 const router = require('express').Router();
 const userRoutes = require('./userRoutes');

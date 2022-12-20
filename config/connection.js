@@ -1,4 +1,4 @@
-// todo: build connection
+// todo: check connection
 
 require('dotenv').config();
 // Import the Sequelize constructor from the library
