@@ -16,7 +16,7 @@
   ## Installation
   For installation of the dependencies, please run the following command in the terminal:
   ```
-  npm i, run mysql terminal and run source schema, npm start
+  npm i, run mysql terminal and run source schema, node run seed
   ```
 
   ## Usage
