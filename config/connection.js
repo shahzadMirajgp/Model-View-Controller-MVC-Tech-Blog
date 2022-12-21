@@ -1,10 +1,9 @@
-// todo: check connection
-
-require('dotenv').config();
 // Import the Sequelize constructor from the library
 const Sequelize = require('sequelize');
 
-// Create connection to the database, pass MySQL information for username and password from env file
+require('dotenv').config();
+
+// Create connection to database, pass in MySQL information for username and password
 let sequelize;
 
 if (process.env.JAWSDB_URL) {

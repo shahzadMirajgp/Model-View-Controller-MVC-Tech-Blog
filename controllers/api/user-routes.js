@@ -1,9 +1,6 @@
-// todo: check user route
-
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
-
 
 // Find all users
 router.get('/', (req, res) => {
@@ -64,6 +61,7 @@ router.post('/', (req, res) => {
       req.session.user_id = dbUserData.id;
       req.session.username = dbUserData.username;
       req.session.loggedIn = true;
+  
       res.json(dbUserData);
     });
   });
@@ -74,7 +72,7 @@ router.put('/:id', withAuth, (req, res) => {
   User.update(req.body, {
     individualHooks: true,
     where: {
-      id: req.params.id
+        id: req.params.id
     }
   })
   .then(dbUserData => {
@@ -116,9 +114,10 @@ router.post('/login', (req, res) => {
     where: {
       email: req.body.email
     }
-  }).then(dbUserData => {
+  })
+  .then(dbUserData => {
     if (!dbUserData) {
-      res.status(400).json({ message: 'No user with that email address!' });
+      res.status(400).json({ message: 'Incorrect email address!' });
       return;
     }
 
@@ -132,7 +131,8 @@ router.post('/login', (req, res) => {
       req.session.user_id = dbUserData.id;
       req.session.username = dbUserData.username;
       req.session.loggedIn = true;
-      res.json({ user: dbUserData, message: 'You are now logged in!' });
+
+      res.json({ user: dbUserData, message: 'Logged in successfully' });
     });
   });
 });
@@ -150,4 +150,3 @@ router.post('/logout', (req, res) => {
 });
 
 module.exports = router;
-

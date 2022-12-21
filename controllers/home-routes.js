@@ -1,13 +1,10 @@
-// todo: check home route
-
 const router = require('express').Router();
+const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
-const withAuth = require('../utils/auth');
 
 // Find all posts
 router.get('/', (req, res) => {
   console.log(req.session);
-  
   Post.findAll({
     attributes: [
       'id',
@@ -30,17 +27,17 @@ router.get('/', (req, res) => {
       }
     ]
   })
-    .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('homepage', {
-          posts,
-          loggedIn: req.session.loggedIn
-        });
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+  .then(dbPostData => {
+    const posts = dbPostData.map(post => post.get({ plain: true }));
+    res.render('homepage', {
+        posts,
+        loggedIn: req.session.loggedIn
+      });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 // post route for find by id
@@ -71,26 +68,41 @@ router.get('/post/:id', (req, res) => {
     ]
   })
   .then(dbPostData => {
-  if (!dbPostData) {
+    if (!dbPostData) {
       res.status(404).json({ message: 'No post found with this id' });
       return;
-  }
+    }
 
-  // serialize the data
-  const post = dbPostData.get({ plain: true });
+    // serialize the data
+    const post = dbPostData.get({ plain: true });
 
-  // pass data to template
-  res.render('single-post', {
-      post,
-      loggedIn: req.session.loggedIn
+    // pass data to template
+    res.render('single-post', {
+        post,
+        loggedIn: req.session.loggedIn
       });
   })
   .catch(err => {
-  console.log(err);
-  res.status(500).json(err);
+    console.log(err);
+    res.status(500).json(err);
   });
 });
 
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+res.render('login');
+});
+
+
+router.get('/signup', (req, res) => {
+if (req.session.loggedIn) {
+  res.redirect('/');
+  return;
+}
+res.render('signup');
+});
+
 module.exports = router;
-
-

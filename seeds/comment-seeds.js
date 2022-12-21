@@ -1,5 +1,3 @@
-// todo: check comment seeds js
-
 const { Comment } = require('../models');
 
 const commentData = [

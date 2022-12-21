@@ -1,5 +1,3 @@
-// todo: check user seeds js
-
 const { User } = require('../models');
 
 const userData = [

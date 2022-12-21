@@ -1,5 +1,3 @@
-// todo: check post seeds js
-
 const { Post } = require('../models');
 
 const postData = [
