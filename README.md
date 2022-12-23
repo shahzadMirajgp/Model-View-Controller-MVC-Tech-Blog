@@ -55,7 +55,7 @@ None
 
 Tim Fleck<br />
 Full-Stack Developer<br />
-[CHUCA78](https://github.com/Chuca78) ![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)<br />
+![Github](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)[CHUCA78](https://github.com/Chuca78) <br />
 t.fleck@hotmail.com
 
 ## Copyright
