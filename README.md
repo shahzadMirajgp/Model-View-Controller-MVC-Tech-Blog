@@ -24,7 +24,10 @@ npm i, run mysql terminal and run source schema, node run seed
 
 ## Usage
 
-To start the application, please type the following command in the terminal:
+To start the application click the following link:
+https://polar-lowlands-86170.herokuapp.com/
+
+Alternately type the following command in the terminal:
 
 ```
 npm start
